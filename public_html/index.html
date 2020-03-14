@@ -5,12 +5,47 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>Test</div>
-    </body>
+<head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+
+<script>
+
+    $(function() {
+
+
+   var profile = [];
+
+   $.getJSON('resume.json', function(data) {
+       $.each(data.profile, function(i, f) {
+          var tblRow = "<tr>" + "<td>" + f.basics.name + "</td>" +
+           "<td>" + f.basics.lable + "</td>" + "<td>" + f.basics.email + "</td>" + "<td>" + f.basics.phone + "</td>" + "</tr>"
+           $(tblRow).appendTo("#userdata tbody");
+     });
+
+   });
+
+});
+</script>
+</head>
+
+<body>
+
+<div class="wrapper">
+<div class="profile">
+   <table id= "userdata" border="2">
+  <thead>
+            <th>Name</th>
+            <th>Application</th>
+            <th>Email Address</th>
+            <th>Phone</th>
+        </thead>
+      <tbody>
+
+       </tbody>
+   </table>
+
+</div>
+</div>
+
+</body>
 </html>
